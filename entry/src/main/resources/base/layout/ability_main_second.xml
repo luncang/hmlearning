@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DirectionalLayout
+    xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    ohos:height="match_parent"
+    ohos:width="match_parent"
+    ohos:orientation="vertical">
+
+    <Text
+        ohos:height="match_content"
+        ohos:width="match_content"
+        ohos:text="main second slice"
+        ohos:text_size="20fp"/>
+
+    <Button
+        ohos:id="$+id:jumpToFirstSlick"
+        ohos:height="match_content"
+        ohos:width="match_content"
+        ohos:background_element="$graphic:bg_button"
+        ohos:layout_alignment="horizontal_center"
+        ohos:padding="10vp"
+        ohos:text="回传值 跳转到第一个slice"
+        ohos:text_color="#333333"
+        ohos:text_size="20fp"
+        ohos:top_margin="10vp"
+        />
+
+    <Button
+        ohos:id="$+id:back"
+        ohos:height="match_content"
+        ohos:width="match_content"
+        ohos:background_element="$graphic:bg_button"
+        ohos:layout_alignment="horizontal_center"
+        ohos:padding="10vp"
+        ohos:text="返回"
+        ohos:text_color="#333333"
+        ohos:text_size="20fp"
+        ohos:top_margin="10vp"
+        />
+
+</DirectionalLayout>

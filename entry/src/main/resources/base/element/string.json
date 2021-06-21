@@ -1,0 +1,56 @@
+{
+  "string": [
+    {
+      "name": "app_name",
+      "value": "HMLearning"
+    },
+    {
+      "name": "mainability_description",
+      "value": "Java_Phone_Empty Feature Ability"
+    },
+    {
+      "name": "mainability_HelloWorld",
+      "value": "Hello World"
+    },
+    {
+      "name": "mydataability_description",
+      "value": "hap sample empty provider"
+    },
+    {
+      "name": "mydataability_description",
+      "value": "hap sample empty provider"
+    },
+    {
+      "name": "myserviceability_description",
+      "value": "hap sample empty service"
+    },
+    {
+      "name": "firstability_description",
+      "value": "Java_Phone_Empty Feature Ability"
+    },
+    {
+      "name": "firstability_HelloWorld",
+      "value": "Hello World"
+    },
+    {
+      "name": "secondability_description",
+      "value": "Java_Phone_Empty Feature Ability"
+    },
+    {
+      "name": "secondability_HelloWorld",
+      "value": "Hello World"
+    },
+    {
+      "name": "continuationability_description",
+      "value": "Java_Empty Ability"
+    },
+    {
+      "name": "continuationability_HelloWorld",
+      "value": "Hello World"
+    },
+    {
+      "name": "entry_ContinuationAbility",
+      "value": "entry_ContinuationAbility"
+    }
+  ]
+}

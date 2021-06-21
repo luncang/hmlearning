@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DirectionalLayout
+    xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    ohos:height="match_parent"
+    ohos:width="match_parent"
+    ohos:orientation="vertical">
+
+
+    <Button
+        ohos:id="$+id:startLocalService"
+        ohos:height="match_content"
+        ohos:width="match_content"
+        ohos:background_element="$graphic:bg_button"
+        ohos:layout_alignment="horizontal_center"
+        ohos:padding="10vp"
+        ohos:text="启动本地服务"
+        ohos:text_color="#333333"
+        ohos:text_size="27fp"
+        />
+
+    <Button
+        ohos:id="$+id:stopLocalService"
+        ohos:height="match_content"
+        ohos:width="match_content"
+        ohos:background_element="$graphic:bg_button"
+        ohos:layout_alignment="horizontal_center"
+        ohos:padding="10vp"
+        ohos:text="停止本地服务"
+        ohos:text_color="#333333"
+        ohos:text_size="27fp"
+        ohos:top_margin="10vp"
+        />
+
+    <Button
+        ohos:id="$+id:jumpToSecondSlice"
+        ohos:height="match_content"
+        ohos:width="match_content"
+        ohos:background_element="$graphic:bg_button"
+        ohos:layout_alignment="horizontal_center"
+        ohos:padding="10vp"
+        ohos:text="跳转到相同page的slice"
+        ohos:text_color="#333333"
+        ohos:text_size="27fp"
+        ohos:top_margin="10vp"
+        />
+
+    <Button
+        ohos:id="$+id:jumpToSecondSlick"
+        ohos:height="match_content"
+        ohos:width="match_content"
+        ohos:background_element="$graphic:bg_button"
+        ohos:layout_alignment="horizontal_center"
+        ohos:padding="10vp"
+        ohos:text="跳转到相同page的slice 回传值"
+        ohos:text_color="#333333"
+        ohos:text_size="20fp"
+        ohos:top_margin="10vp"
+        />
+
+    <Button
+        ohos:id="$+id:jumpToOtherFirst"
+        ohos:height="match_content"
+        ohos:width="match_content"
+        ohos:background_element="$graphic:bg_button"
+        ohos:layout_alignment="horizontal_center"
+        ohos:padding="10vp"
+        ohos:text="跳转到其它page第一个slice"
+        ohos:text_color="#333333"
+        ohos:text_size="20fp"
+        ohos:top_margin="10vp"
+        />
+
+    <Button
+        ohos:id="$+id:jumpToOtherSecond"
+        ohos:height="match_content"
+        ohos:width="match_content"
+        ohos:background_element="$graphic:bg_button"
+        ohos:layout_alignment="horizontal_center"
+        ohos:padding="10vp"
+        ohos:text="跳转到其它page第二个slice 回传值"
+        ohos:text_color="#333333"
+        ohos:text_size="20fp"
+        ohos:top_margin="10vp"
+        />
+
+
+</DirectionalLayout>
