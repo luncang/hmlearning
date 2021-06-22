@@ -1,14 +1,18 @@
 package com.example.hmlearning.slice;
 
+import com.example.hmlearning.RemoteAgentProxy;
 import com.example.hmlearning.ResourceTable;
+import com.example.hmlearning.ui.LocalServiceConnection;
 import com.example.hmlearning.utils.Utils;
 import ohos.aafwk.ability.AbilitySlice;
+import ohos.aafwk.ability.IAbilityConnection;
 import ohos.aafwk.content.Intent;
-import ohos.aafwk.content.IntentParams;
 import ohos.aafwk.content.Operation;
 import ohos.agp.components.Button;
+import ohos.bundle.ElementName;
 import ohos.hiviewdfx.HiLog;
 import ohos.hiviewdfx.HiLogLabel;
+import ohos.rpc.IRemoteObject;
 
 public class MainAbilitySlice extends AbilitySlice {
 
@@ -19,6 +23,11 @@ public class MainAbilitySlice extends AbilitySlice {
     private Button stopLocalService;
     private Button jumpToSecondSlick, jumpToSecondSlice;
     private Button jumpToOtherFirst, jumpToOtherSecond;
+    private Button connectLocalService, disconnectLocalService;
+    private Button startTask,cancelTask;
+
+    private LocalServiceConnection connection = new LocalServiceConnection(this);
+
 
     @Override
     public void onStart(Intent intent) {
@@ -30,16 +39,44 @@ public class MainAbilitySlice extends AbilitySlice {
         jumpToSecondSlice = (Button) findComponentById(ResourceTable.Id_jumpToSecondSlice);
         jumpToOtherFirst = (Button) findComponentById(ResourceTable.Id_jumpToOtherFirst);
         jumpToOtherSecond = (Button) findComponentById(ResourceTable.Id_jumpToOtherSecond);
+        connectLocalService = (Button) findComponentById(ResourceTable.Id_connectService);
+        disconnectLocalService = (Button) findComponentById(ResourceTable.Id_disconnectService);
+        startTask =(Button) findComponentById(ResourceTable.Id_startTask);
+        cancelTask =(Button) findComponentById(ResourceTable.Id_cancelTask);
 
+        //普通启动service
         startLocalService.setClickedListener((component) -> {
             HiLog.error(LABEL_LOG, "onclick");
             Utils.startLocalService(getAbility());
 
         });
 
+        //普通停止service
         stopLocalService.setClickedListener((component) -> {
             HiLog.error(LABEL_LOG, "onStopclick");
             Utils.stopService(getAbility());
+        });
+
+        //连接service
+        connectLocalService.setClickedListener((component) -> {
+            HiLog.error(LABEL_LOG, "onConnectClick");
+//            Utils.connectLocalService(getAbility(),connection);
+            connection.connectLocalService();
+        });
+
+        //断开连接service
+        disconnectLocalService.setClickedListener((component) -> {
+            HiLog.error(LABEL_LOG, "onDisconnectClick");
+//            Utils.disconnectLocalService(getAbility(),connection);
+            connection.disconnectLocalService();
+        });
+
+        startTask.setClickedListener((component)->{
+            connection.startNewTask("baidu.com");
+        });
+
+        cancelTask.setClickedListener((component)->{
+            connection.cancelTask();
         });
 
         //相同page,回传值

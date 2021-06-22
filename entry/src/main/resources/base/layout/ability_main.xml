@@ -15,7 +15,7 @@
         ohos:padding="10vp"
         ohos:text="启动本地服务"
         ohos:text_color="#333333"
-        ohos:text_size="27fp"
+        ohos:text_size="20fp"
         />
 
     <Button
@@ -27,7 +27,59 @@
         ohos:padding="10vp"
         ohos:text="停止本地服务"
         ohos:text_color="#333333"
-        ohos:text_size="27fp"
+        ohos:text_size="20fp"
+        ohos:top_margin="10vp"
+        />
+
+    <Button
+        ohos:id="$+id:connectService"
+        ohos:height="match_content"
+        ohos:width="match_content"
+        ohos:background_element="$graphic:bg_button"
+        ohos:layout_alignment="horizontal_center"
+        ohos:padding="10vp"
+        ohos:text="连接本地服务"
+        ohos:text_color="#333333"
+        ohos:text_size="20fp"
+        ohos:top_margin="10vp"
+        />
+
+    <Button
+        ohos:id="$+id:disconnectService"
+        ohos:height="match_content"
+        ohos:width="match_content"
+        ohos:background_element="$graphic:bg_button"
+        ohos:layout_alignment="horizontal_center"
+        ohos:padding="10vp"
+        ohos:text="断开本地服务"
+        ohos:text_color="#333333"
+        ohos:text_size="20fp"
+        ohos:top_margin="10vp"
+        />
+
+    <Button
+        ohos:id="$+id:startTask"
+        ohos:height="match_content"
+        ohos:width="match_content"
+        ohos:background_element="$graphic:bg_button"
+        ohos:layout_alignment="horizontal_center"
+        ohos:padding="10vp"
+        ohos:text="开启任务"
+        ohos:text_color="#333333"
+        ohos:text_size="20fp"
+        ohos:top_margin="10vp"
+        />
+
+    <Button
+        ohos:id="$+id:cancelTask"
+        ohos:height="match_content"
+        ohos:width="match_content"
+        ohos:background_element="$graphic:bg_button"
+        ohos:layout_alignment="horizontal_center"
+        ohos:padding="10vp"
+        ohos:text="取消任务"
+        ohos:text_color="#333333"
+        ohos:text_size="20fp"
         ohos:top_margin="10vp"
         />
 
@@ -40,7 +92,7 @@
         ohos:padding="10vp"
         ohos:text="跳转到相同page的slice"
         ohos:text_color="#333333"
-        ohos:text_size="27fp"
+        ohos:text_size="20fp"
         ohos:top_margin="10vp"
         />
 

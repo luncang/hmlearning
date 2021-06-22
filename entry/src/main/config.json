@@ -56,7 +56,7 @@
         "uri": "dataability://com.example.hmlearning.ui.MyDataAbility"
       },
       {
-        "name": "com.example.hmlearning.ui.MyServiceAbility",
+        "name": "com.example.hmlearning.ui.LocalServiceAbility",
         "icon": "$media:icon",
         "description": "$string:myserviceability_description",
         "type": "service",

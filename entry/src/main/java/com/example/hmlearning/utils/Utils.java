@@ -1,9 +1,10 @@
 package com.example.hmlearning.utils;
 
+import com.example.hmlearning.ui.LocalServiceAbility;
 import ohos.aafwk.ability.Ability;
+import ohos.aafwk.ability.IAbilityConnection;
 import ohos.aafwk.content.Intent;
 import ohos.aafwk.content.Operation;
-import ohos.app.Context;
 
 /**
  * @Class: Utils
@@ -56,4 +57,32 @@ public class Utils {
         intent.setOperation(operation);
         ability.startAbility(intent);
     }
+
+
+    /**
+     * 连接service
+     * @param ability
+     * @param connection
+     */
+    public static void connectLocalService(Ability ability, IAbilityConnection connection){
+        Intent intent = new Intent();
+        Operation operation = new Intent.OperationBuilder()
+                .withDeviceId("")
+                .withBundleName("com.example.hmlearning")
+                .withAbilityName(LocalServiceAbility.class)
+                .build();
+        intent.setOperation(operation);
+        ability.connectAbility(intent,connection);
+    }
+
+    /**
+     * 断开本地连接
+     * @param ability
+     * @param connection
+     */
+    public static void disconnectLocalService(Ability ability, IAbilityConnection connection){
+        ability.disconnectAbility(connection);
+    }
+
+
 }
