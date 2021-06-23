@@ -4,6 +4,7 @@ import com.example.hmlearning.utils.Const;
 import ohos.aafwk.ability.Ability;
 import ohos.aafwk.ability.LocalRemoteObject;
 import ohos.aafwk.content.Intent;
+import ohos.event.notification.NotificationRequest;
 import ohos.eventhandler.InnerEvent;
 import ohos.rpc.IRemoteObject;
 import ohos.hiviewdfx.HiLog;
@@ -19,10 +20,30 @@ import ohos.rpc.RemoteException;
 public class LocalServiceAbility extends Ability {
     private static final HiLogLabel LABEL_LOG = new HiLogLabel(3, 0xD001100, "MainAbility");
 
+    private static final int NOTIFICATION_ID = 0XD0000002;
+
     @Override
     public void onStart(Intent intent) {
         HiLog.error(LABEL_LOG, "MyServiceAbility::onStart");
+//        startForeground();
         super.onStart(intent);
+    }
+
+
+    private void startForeground(){
+        // 创建通知，其中1005为notificationId
+        NotificationRequest request = new NotificationRequest(NOTIFICATION_ID);
+        NotificationRequest.NotificationNormalContent content = new NotificationRequest.NotificationNormalContent();
+        content.setTitle("Foreground Service").setText("I'm a ForeGround Service");
+        NotificationRequest.NotificationContent notificationContent = new NotificationRequest.NotificationContent(content);
+        request.setContent(notificationContent);
+
+        // 绑定通知，1005为创建通知时传入的notificationId
+        keepBackgroundRunning(NOTIFICATION_ID, request);
+    }
+
+    private void cancelForeground(){
+        cancelBackgroundRunning();
     }
 
     @Override
@@ -35,6 +56,7 @@ public class LocalServiceAbility extends Ability {
     public void onStop() {
         super.onStop();
         HiLog.error(LABEL_LOG, "MyServiceAbility::onStop");
+//        cancelForeground();
     }
 
     @Override

@@ -107,6 +107,11 @@
         "type": "page",
         "launchType": "standard"
       }
+    ],
+    "reqPermissions": [
+      {
+        "name": "ohos.permission.KEEP_BACKGROUND_RUNNING"
+      }
     ]
   }
 }
