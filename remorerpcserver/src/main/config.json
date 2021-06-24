@@ -1,0 +1,57 @@
+{
+  "app": {
+    "bundleName": "com.example.remorerpcserver",
+    "vendor": "example",
+    "version": {
+      "code": 1000000,
+      "name": "1.0.0"
+    }
+  },
+  "deviceConfig": {},
+  "module": {
+    "package": "com.example.remorerpcserver",
+    "mainAbility": "com.example.remorerpcserver.MainAbility",
+    "name": ".MyApplication",
+    "deviceType": [
+      "phone"
+    ],
+    "distro": {
+      "deliveryWithInstall": true,
+      "moduleName": "remorerpcserver",
+      "moduleType": "entry",
+      "installationFree": true
+    },
+    "abilities": [
+      {
+        "skills": [
+          {
+            "entities": [
+              "entity.system.home"
+            ],
+            "actions": [
+              "action.system.home"
+            ]
+          }
+        ],
+        "orientation": "unspecified",
+        "name": "com.example.remorerpcserver.MainAbility",
+        "icon": "$media:icon",
+        "description": "$string:mainability_description",
+        "label": "$string:remorerpcserver_MainAbility",
+        "type": "page",
+        "launchType": "standard"
+      },
+      {
+        "backgroundModes": [
+          "dataTransfer",
+          "location"
+        ],
+        "name": "com.example.remorerpcserver.RemoteService",
+        "icon": "$media:icon",
+        "description": "$string:remoteservice_description",
+        "type": "service",
+        "visible": true
+      }
+    ]
+  }
+}

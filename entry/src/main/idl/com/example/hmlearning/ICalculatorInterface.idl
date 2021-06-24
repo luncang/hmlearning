@@ -1,0 +1,10 @@
+// ICalculatorInterface.idl
+
+// Declare any non-default types here with sequenceable or interface statements
+
+interface com.example.remorerpcserver.ICalculatorInterface {
+    /*
+     * Example of a service method that uses some parameters
+     */
+    int addNumber([in] int a,[in] int b);
+}

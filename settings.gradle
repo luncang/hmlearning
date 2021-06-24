@@ -1,1 +1,1 @@
-include ':entry', ':learningmoudlefeature', ':learningLib'
+include ':entry', ':learningmoudlefeature', ':learningLib', ':remorerpcserver'

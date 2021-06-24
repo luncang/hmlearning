@@ -1,0 +1,16 @@
+{
+  "string": [
+    {
+      "name": "remorerpcserver_MainAbility",
+      "value": "remorerpcserver_MainAbility"
+    },
+    {
+      "name": "mainability_description",
+      "value": "Java_Empty Ability"
+    },
+    {
+      "name": "mainability_HelloWorld",
+      "value": "Hello World"
+    }
+  ]
+}

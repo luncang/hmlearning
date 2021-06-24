@@ -83,6 +83,57 @@
         ohos:top_margin="10vp"
         />
 
+    <DirectionalLayout
+        ohos:height="match_content"
+        ohos:width="match_parent"
+        ohos:end_padding="10vp"
+        ohos:orientation="horizontal"
+        ohos:start_padding="10vp"
+        ohos:top_margin="10vp">
+
+        <TextField
+            ohos:id="$+id:numA"
+            ohos:height="40vp"
+            ohos:width="100vp"
+            ohos:background_element="$graphic:bg_textfield"
+            ohos:hint="请输入数字"
+            ohos:text_alignment="center"
+            ohos:text_input_type="pattern_number"
+            ohos:text_size="20fp"
+            ohos:weight="1"/>
+
+        <TextField
+            ohos:id="$+id:numB"
+            ohos:height="40vp"
+            ohos:width="100vp"
+            ohos:background_element="$graphic:bg_textfield"
+            ohos:hint="请输入数字"
+            ohos:start_margin="20vp"
+            ohos:text_alignment="center"
+            ohos:text_input_type="pattern_number"
+            ohos:text_size="20fp"
+            ohos:weight="1"/>
+
+
+    </DirectionalLayout>
+
+
+    <Button
+        ohos:id="$+id:addNumber"
+        ohos:height="match_content"
+        ohos:width="match_parent"
+        ohos:background_element="$graphic:bg_button"
+        ohos:end_margin="10vp"
+        ohos:layout_alignment="horizontal_center"
+        ohos:padding="10vp"
+        ohos:start_margin="10vp"
+        ohos:text="远程服务(加法)"
+        ohos:text_color="#ffffff"
+        ohos:text_size="20fp"
+        ohos:top_margin="10vp"
+        />
+
+
     <Button
         ohos:id="$+id:jumpToSecondSlice"
         ohos:height="match_content"

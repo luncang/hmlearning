@@ -1,18 +1,23 @@
 package com.example.hmlearning.slice;
 
-import com.example.hmlearning.RemoteAgentProxy;
+import com.example.hmlearning.MainAbility;
 import com.example.hmlearning.ResourceTable;
 import com.example.hmlearning.ui.LocalServiceConnection;
+import com.example.hmlearning.ui.RemoteServiceConnection;
+import com.example.hmlearning.utils.Const;
 import com.example.hmlearning.utils.Utils;
 import ohos.aafwk.ability.AbilitySlice;
-import ohos.aafwk.ability.IAbilityConnection;
 import ohos.aafwk.content.Intent;
 import ohos.aafwk.content.Operation;
 import ohos.agp.components.Button;
-import ohos.bundle.ElementName;
+import ohos.agp.components.TextField;
+import ohos.eventhandler.EventHandler;
+import ohos.eventhandler.EventRunner;
+import ohos.eventhandler.InnerEvent;
 import ohos.hiviewdfx.HiLog;
 import ohos.hiviewdfx.HiLogLabel;
-import ohos.rpc.IRemoteObject;
+
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class MainAbilitySlice extends AbilitySlice {
 
@@ -24,9 +29,29 @@ public class MainAbilitySlice extends AbilitySlice {
     private Button jumpToSecondSlick, jumpToSecondSlice;
     private Button jumpToOtherFirst, jumpToOtherSecond;
     private Button connectLocalService, disconnectLocalService;
-    private Button startTask,cancelTask;
+    private Button startTask, cancelTask;
+    private Button addNumber;
+    private TextField numA, numB;
 
     private LocalServiceConnection connection = new LocalServiceConnection(this);
+
+
+    private AtomicBoolean remoteConnection = new AtomicBoolean(false);
+
+    private EventHandler handler = new EventHandler(EventRunner.current()) {
+
+        @Override
+        protected void processEvent(InnerEvent event) {
+            switch (event.eventId) {
+                case Const.REMOTE_CONNECTION_SUCCESS:
+                    remoteConnection.set(true);
+                    add();
+                    break;
+            }
+        }
+    };
+
+    private RemoteServiceConnection remoteServiceConnection = new RemoteServiceConnection(this, handler);
 
 
     @Override
@@ -41,8 +66,11 @@ public class MainAbilitySlice extends AbilitySlice {
         jumpToOtherSecond = (Button) findComponentById(ResourceTable.Id_jumpToOtherSecond);
         connectLocalService = (Button) findComponentById(ResourceTable.Id_connectService);
         disconnectLocalService = (Button) findComponentById(ResourceTable.Id_disconnectService);
-        startTask =(Button) findComponentById(ResourceTable.Id_startTask);
-        cancelTask =(Button) findComponentById(ResourceTable.Id_cancelTask);
+        startTask = (Button) findComponentById(ResourceTable.Id_startTask);
+        cancelTask = (Button) findComponentById(ResourceTable.Id_cancelTask);
+        addNumber = (Button) findComponentById(ResourceTable.Id_addNumber);
+        numA = (TextField) findComponentById(ResourceTable.Id_numA);
+        numB = (TextField) findComponentById(ResourceTable.Id_numB);
 
         //普通启动service
         startLocalService.setClickedListener((component) -> {
@@ -71,13 +99,19 @@ public class MainAbilitySlice extends AbilitySlice {
             connection.disconnectLocalService();
         });
 
-        startTask.setClickedListener((component)->{
+        startTask.setClickedListener((component) -> {
             connection.startNewTask("baidu.com");
         });
 
-        cancelTask.setClickedListener((component)->{
+        cancelTask.setClickedListener((component) -> {
             connection.cancelTask();
         });
+
+        //连接远程service
+        addNumber.setClickedListener((c) -> {
+            startAddCalculator();
+        });
+
 
         //相同page,回传值
         jumpToSecondSlick.setClickedListener((component) -> {
@@ -131,6 +165,24 @@ public class MainAbilitySlice extends AbilitySlice {
 
         HiLog.error(LABEL_LOG, "onStart");
 
+    }
+
+
+    private void startAddCalculator() {
+        if (remoteConnection.get()) {
+            add();
+            return;
+        }
+        HiLog.error(LABEL_LOG,"连接远程service");
+        remoteServiceConnection.connectRemoteService();
+
+    }
+
+    private void add() {
+        int a = Integer.parseInt(numA.getText());
+        int b = Integer.parseInt(numB.getText());
+        int result = remoteServiceConnection.addNumber(a, b);
+        HiLog.error(LABEL_LOG,"result:"+result);
     }
 
     @Override

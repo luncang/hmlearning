@@ -49,4 +49,6 @@ public class Const {
      * deploy request success
      */
     public static final int SEND_REQUEST_SUCCESS = 0x0000006;
+
+    public static final int REMOTE_CONNECTION_SUCCESS=0x0000007;
 }
