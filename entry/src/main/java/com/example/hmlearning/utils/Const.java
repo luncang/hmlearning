@@ -51,4 +51,39 @@ public class Const {
     public static final int SEND_REQUEST_SUCCESS = 0x0000006;
 
     public static final int REMOTE_CONNECTION_SUCCESS=0x0000007;
+
+    public static final String BASE_URI="dataability:///ohos.samples.userdata";
+
+    /**
+     * Database name
+     */
+    public static final String DB_NAME = "dataability.db";
+
+    /**
+     * Database table name
+     */
+    public static final String DB_TAB_NAME = "person";
+
+    /**
+     * Database column name:name
+     */
+    public static final String DB_COLUMN_NAME = "name";
+
+    /**
+     * Database column name:age
+     */
+    public static final String DB_COLUMN_AGE = "age";
+
+    /**
+     * Database column name:userId
+     */
+    public static final String DB_COLUMN_USER_ID = "userId";
+
+    /**
+     * Database data path
+     */
+    public static final String DATA_PATH = "/person";
+
+
+    public static final String BUNDLE_NAME="com.example.hmlearning";
 }

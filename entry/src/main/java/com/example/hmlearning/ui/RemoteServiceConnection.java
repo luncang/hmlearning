@@ -29,8 +29,6 @@ public class RemoteServiceConnection implements IAbilityConnection {
     private CalculatorInterfaceProxy proxy;
 
 
-
-
     public RemoteServiceConnection(Context ability, EventHandler handler) {
         this.ability = ability;
         this.handler = handler;
@@ -40,39 +38,38 @@ public class RemoteServiceConnection implements IAbilityConnection {
     public void onAbilityConnectDone(ElementName elementName, IRemoteObject iRemoteObject, int i) {
         proxy = new CalculatorInterfaceProxy(iRemoteObject);
         handler.sendEvent(Const.REMOTE_CONNECTION_SUCCESS);
-        HiLog.error(LABEL_LOG,"onAbilityConnectDone");
+        HiLog.error(LABEL_LOG, "onAbilityConnectDone");
     }
 
     @Override
     public void onAbilityDisconnectDone(ElementName elementName, int i) {
-        HiLog.error(LABEL_LOG,"onAbilityDisconnectDone");
+        HiLog.error(LABEL_LOG, "onAbilityDisconnectDone");
     }
 
-    public int addNumber(int a,int b){
-        int sum =0;
+    public int addNumber(int a, int b) {
+        int sum = 0;
         try {
-            sum = proxy.addNumber(a,b);
+            sum = proxy.addNumber(a, b);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
         return sum;
     }
 
-    public void connectRemoteService(){
+    public void connectRemoteService() {
         Intent intent = new Intent();
-        ElementName elementName = new ElementName("","com.example.remorerpcserver","com.example.remorerpcserver.RemoteService");
+        ElementName elementName = new ElementName("", "com.example.remorerpcserver", "com.example.remorerpcserver.RemoteService");
         intent.setElement(elementName);
-        ability.connectAbility(intent,this);
+        ability.connectAbility(intent, this);
 
     }
 
-    public void disconnectRemoteService(){
+    public void disconnectRemoteService() {
         Intent intent = new Intent();
         Operation operation = new Intent.OperationBuilder()
                 .withDeviceId("")
                 .withBundleName("com.example.remorerpcserver")
                 .withAbilityName("com.example.remorerpcserver.RemoteService")
-                .withFlags(Intent.FLAG_ABILITYSLICE_MULTI_DEVICE)
                 .build();
         intent.setOperation(operation);
         ability.disconnectAbility(this);

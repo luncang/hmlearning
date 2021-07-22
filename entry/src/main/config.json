@@ -24,6 +24,13 @@
       "moduleName": "entry",
       "moduleType": "entry"
     },
+    "defPermissions": [
+      {
+        "name": "com.example.hmlearning.ui.MyDataAbility.permission",
+        "grantMode": "system_grant",
+        "availableScope": "signature"
+      }
+    ],
     "abilities": [
       {
         "skills": [
@@ -45,15 +52,15 @@
         "launchType": "standard"
       },
       {
-        "permissions": [
-          "com.example.hmlearning.ui.DataAbilityShellProvider.PROVIDER"
-        ],
-        "name": "com.example.hmlearning.ui.MyDataAbility",
+        "name": "com.example.hmlearning.ui.UserDataAbility",
         "icon": "$media:icon",
         "visible": true,
         "description": "$string:mydataability_description",
         "type": "data",
-        "uri": "dataability://com.example.hmlearning.ui.MyDataAbility"
+        "uri": "dataability://ohos.samples.userdata",
+        "permissions": [
+          "ohos.dataability.CustomPermission"
+        ]
       },
       {
         "name": "com.example.hmlearning.ui.LocalServiceAbility",
@@ -106,11 +113,46 @@
         "label": "$string:entry_ContinuationAbility",
         "type": "page",
         "launchType": "standard"
+      },
+      {
+        "orientation": "unspecified",
+        "name": "com.example.hmlearning.ui.PageAbility",
+        "icon": "$media:icon",
+        "description": "$string:pageability_description",
+        "label": "$string:entry_PageAbility",
+        "type": "page",
+        "launchType": "standard"
+      },
+      {
+        "orientation": "unspecified",
+        "name": "com.example.hmlearning.ui.ServiceAbility",
+        "icon": "$media:icon",
+        "description": "$string:serviceability_description",
+        "label": "$string:entry_ServiceAbility",
+        "type": "page",
+        "launchType": "standard"
+      },
+      {
+        "orientation": "unspecified",
+        "name": "com.example.hmlearning.ui.DataAbility",
+        "icon": "$media:icon",
+        "description": "$string:dataability_description",
+        "label": "$string:entry_DataAbility",
+        "type": "page",
+        "launchType": "standard"
       }
     ],
     "reqPermissions": [
       {
         "name": "ohos.permission.KEEP_BACKGROUND_RUNNING"
+      },
+      {
+        "name": "ohos.permission.READ_USER_STORAGE"
+      },
+      {
+        "name": "ohos.permission.WRITE_USER_STORAGE"
+      },{
+        "name": "ohos.dataability.CustomPermission"
       }
     ]
   }

@@ -51,6 +51,42 @@
     {
       "name": "entry_ContinuationAbility",
       "value": "entry_ContinuationAbility"
+    },
+    {
+      "name": "pageability_description",
+      "value": "Java_Empty Ability"
+    },
+    {
+      "name": "pageability_HelloWorld",
+      "value": "Hello World"
+    },
+    {
+      "name": "entry_PageAbility",
+      "value": "entry_PageAbility"
+    },
+    {
+      "name": "serviceability_description",
+      "value": "Java_Empty Ability"
+    },
+    {
+      "name": "serviceability_HelloWorld",
+      "value": "Hello World"
+    },
+    {
+      "name": "entry_ServiceAbility",
+      "value": "entry_ServiceAbility"
+    },
+    {
+      "name": "dataability_description",
+      "value": "Java_Empty Ability"
+    },
+    {
+      "name": "dataability_HelloWorld",
+      "value": "Hello World"
+    },
+    {
+      "name": "entry_DataAbility",
+      "value": "entry_DataAbility"
     }
   ]
 }
